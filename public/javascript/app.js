@@ -6,14 +6,14 @@ $(document).ready(function() {
       currentSubject: -1
     };
   
-    $(document).ready(function(){
-      $("#logo-fade").animate({opacity: '1', display: 'block'}, 3000);
-      $("#logo-fade").animate({opacity: '0', display: 'none', position: 'relative'}, 3000, 
-          function () {
-            $(this).css('z-index', -10)
-          }
-      );
-    });
+    // $(document).ready(function(){
+    //   $("#logo-fade").animate({opacity: '1', display: 'block'}, 3000);
+    //   $("#logo-fade").animate({opacity: '0', display: 'none', position: 'relative'}, 3000, 
+    //       function () {
+    //         $(this).css('z-index', -10)
+    //       }
+    //   );
+    // });
   
     /**
      * Renders a picture and paragraph onto index.html
@@ -21,7 +21,7 @@ $(document).ready(function() {
      */
     const render = () => {
       let apodPicture = $("<img>");
-      apodPicture.attr("id", "db-picture");
+    apodPicture.attr("id", "apod_img_id");
       console.log("current",  state.current);
       apodPicture.attr("src", state.cardArr[0][state.current].hdurl);
       $("#card").html(apodPicture);
