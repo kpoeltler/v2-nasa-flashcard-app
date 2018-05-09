@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Astronomy Flashcards</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">defer</script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">defer</script>
+  
+  <script src="javascript/app.js" defer></script>
+  
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+      <img src="images/logo.png" alt="Logo">
+    </header>
+    <div class="container-fluid">
+      <div class="container">
+
+        <!-- Fade in and out Logo -->
+        <!-- <h1 id="logo-fade">
+          <img src="images/logo.png" alt="Logo">
+        </h1> -->
+
+        <div id="card" class="flashcard">
+          <img id="apod_img_id" width="620px" height="430px" />
+ 
+         <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe>
+      <div class="apod-title">
+        <h3 id="apod_title"></h3>
+        </div>
+          </div>
+
+
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h4 id="edit-section" class="modal-title">Please add your deep space knowledge</h4>
+              </div>
+
+              <div class="modal-body">
+                  <p id="apod_explaination"></p>
+                <form action="" method="post">
+                  <input id="user-comment" class="form-control form-control-lg" type="text" placeholder="">
+                  <button id="add-comment-btn" type="button" class="btn btn-outline-dark">Submit</button>
+                </form>
+                <p> </p>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="content-nav">
+          <div id="subject-group">
+            <button class="btns" id="prebtn"><</button>
+            <button class="btns" id="nextbtn">></button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+         <script>
+    
+ 
+    
+            
+            $.ajax({
+              url:"https://api.nasa.gov/planetary/apod?api_key=VBmmkpWMV3eWpklLC1tsXUmUiiej1unTpiihHq8n";
+              success: function(result){
+              // if("copyright" in result) {
+              //   $("#copyright").text("Image Credits: " + result.copyright);
+              // }
+              // else {
+              //   $("#copyright").text("Image Credits: " + "Public Domain");
+              // }
+              
+              if(result.media_type == "video") {
+                $("#apod_img_id").css("display", "none"); 
+                $("#apod_vid_id").attr("src", result);
+              }
+              else {
+                $("#apod_vid_id").css("display", "none"); 
+                $("#apod_img_id").attr("src", result);
+              }
+              $("#reqObject").text(url);
+              $("#returnObject").text(JSON.stringify(result, null, 10));  
+              $("#apod_explaination").text(result.explanation);
+              $("#apod_title").text(result.title);
+            }
+            });   
+    
+    </script>
+</body>
+</html>
