@@ -1,9 +1,3 @@
-
-
-
-
-
-
 $(document).ready(function() {
   let state = {
     cardArr: [],
@@ -359,5 +353,3 @@ let success = $.ajax({
   }
 }
 })
-
-
