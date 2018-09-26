@@ -1,90 +1,106 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
 
-  <title>Astronomy Flashcards</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Astronomy Flashcards</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/style.css" />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <script src="public/javascript/app.js"></script>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-</head>
+    <script src="public/javascript/app.js"></script>
 
-<body>
-  <div id="wrapper">
+
+  </head>
+
+  <body>
+
     <header>
       <img src="public/images/logo.png" alt="Logo">
     </header>
-    <div class="container-fluid">
-      <div class="container">
 
-        <!-- Fade in and out Logo -->
-        <!-- <h1 id="logo-fade">
-          <img src="images/logo.png" alt="Logo">
-        </h1> -->
+    <!-- Fade in and out Logo -->
+    <h1 id="logo-fade">
+      <img src="images/logo.png" alt="Logo">
+    </h1>
 
+    <div class="row">
+      <div class="col-md-offset-1 col-md-4">
         <div id="card" class="flashcard">
           <img id="apod_img_id" width="620px" height="430px" />
- 
-         <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe>
-      <div class="apod-title">
-        <h3 id="apod_title"></h3>
-        </div>
-          </div>
-          <div>
-            <!-- <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="3"></iframe>
-            <p id="copyright"></p> -->
-    
+          <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe>
+          <div class="apod-title">
             <h3 id="apod_title"></h3>
-            <p id="apod_explaination"></p>
-            </div>
-
-        <!-- <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <div class="modal-header">
-                <h4 id="edit-section" class="modal-title">Please add your deep space knowledge</h4>
-              </div> 
-              
-              <br/>
-              <div class="modal-body">
-                  <p id="apod_explaination"></p>
-                <form action="" method="post">
-                  <input id="user-comment" class="form-control form-control-lg" type="text" placeholder="">
-                  <button id="add-comment-btn" type="button" class="btn btn-outline-dark">Submit</button>
-                </form>
-                <p> </p>
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-
-            </div>
           </div>
-        </div>  -->
 
+          </br>
+
+        </div>
         <div id="content-nav">
           <div id="subject-group">
-            <button class="btns" id="prebtn"><</button>
-            <button class="btns" id="nextbtn">></button>
+            <button class="btns" id="prebtn">
+              < </button> <button class="btns" id="nextbtn">>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-</div>
 
-            <!-- $.ajax({
+
+      <!-- Row displaying Image Description -->
+      <div class="col-md-offset-2 col-md-4">
+        <div id="apod_explaination" class="explaination">
+        </div>
+
+
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          <i class="fa fa-edit"> Add to this description</i> </button>
+      </div>
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <i class="fa fa-edit"></i>
+              <h4 id="edit-section" class="modal-title">Get wiki with it! Feel free to add your own edits.</h4>
+              <p></p>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post">
+                <label for="POST-name">What's your header? </label>
+                <input id="POST-name" type="text" name="name">
+                <p> We love reading deep space facts! </p>
+                <textarea id="user-comment" class="form-control form-control-lg" type="text" placeholder="" rows="8"
+                  cols="50">
+                </textarea>
+                <input type="submit" value="Save">
+              </form>
+
+              <!-- I need to write a post route in app.js to save the changes
+                    app.post/usercomments/-->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- $.ajax({
               url:"https://api.nasa.gov/planetary/apod?api_key=VBmmkpWMV3eWpklLC1tsXUmUiiej1unTpiihHq8n";
               success: function(result){
               // if("copyright" in result) {
@@ -93,22 +109,29 @@
               // else {
               //   $("#copyright").text("Image Credits: " + "Public Domain");
               // }
-              
+
               if(result.media_type == "video") {
-                $("#apod_img_id").css("display", "none"); 
+                $("#apod_img_id").css("display", "none");
                 $("#apod_vid_id").attr("src", result);
               }
               else {
-                $("#apod_vid_id").css("display", "none"); 
+                $("#apod_vid_id").css("display", "none");
                 $("#apod_img_id").attr("src", result);
               }
               $("#reqObject").text(url);
-              $("#returnObject").text(JSON.stringify(result, null, 10));  
+              $("#returnObject").text(JSON.stringify(result, null, 10));
               $("#apod_explaination").text(result.explanation);
               $("#apod_title").text(result.title);
             }
-          
+
             });    -->
-         
-</body>
+    <!-- <div>
+                <!-- <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="3"></iframe>
+                <p id="copyright"></p> -->
+
+    <!-- <h3 id="apod_title"></h3>
+                </div> -->
+
+  </body>
+
 </html>
