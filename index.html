@@ -21,83 +21,63 @@
   </head>
 
   <body>
-
-    <header>
-      <img src="public/images/logo.png" alt="Logo">
-    </header>
-
-    <!-- Fade in and out Logo -->
-    <h1 id="logo-fade">
+    <div class="container">
+      <div class="jumbotron" style="background-color: black;">
+        <img src="public/images/logo.png" alt="daily nasa picture" width="90%">
+      </div>
+      <!-- Fade in and out Logo -->
+      <!-- <h1 id="logo-fade">
       <img src="images/logo.png" alt="Logo">
-    </h1>
-
-    <div class="row">
-      <div class="col-md-offset-1 col-md-4">
-        <div id="card" class="flashcard">
-          <img id="apod_img_id" width="620px" height="430px" />
-          <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe>
-          <div class="apod-title">
-            <h3 id="apod_title"></h3>
-          </div>
-
-          </br>
-
-        </div>
-        <div id="content-nav">
-          <div id="subject-group">
-            <button class="btns" id="prebtn">
-              < </button> <button class="btns" id="nextbtn">>
-            </button>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Row displaying Image Description -->
-      <div class="col-md-offset-2 col-md-4">
-        <div id="apod_explaination" class="explaination">
-        </div>
-
-
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          <i class="fa fa-edit"> Add to this description</i> </button>
-      </div>
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <i class="fa fa-edit"></i>
-              <h4 id="edit-section" class="modal-title">Get wiki with it! Feel free to add your own edits.</h4>
-              <p></p>
-            </div>
-            <div class="modal-body">
-              <form action="" method="post">
-                <label for="POST-name">What's your header? </label>
-                <input id="POST-name" type="text" name="name">
-                <p> We love reading deep space facts! </p>
-                <textarea id="user-comment" class="form-control form-control-lg" type="text" placeholder="" rows="8"
-                  cols="50">
-                </textarea>
-                <input type="submit" value="Save">
-              </form>
-
-              <!-- I need to write a post route in app.js to save the changes
-                    app.post/usercomments/-->
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- </h1> -->
+      <!-- Row for Image and explaination  -->
       <div class="row">
-        <div class="col-md-12">
-
+        <div class="col-sm-12">
+          <div id="card">
+            <img id="apod_img_id" width="590px" height="430px" />
+            <!-- <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe> -->
+            <div class="apod-title">
+              <h3 id="apod_title"></h3>
+            </div>
+            <div>
+              <button class="btns" id="prebtn">
+                < </button> <button class="btns" id="nextbtn">>
+              </button>
+            </div>
+          </div>
+        </div>
+<div class="row">
+        <div class="col-sm-8">
+          <div id="apod_explaination" class="explaination"></div>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-edit"> Add to this description</i> </button>
+        </div>
+</div>
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <i class="fa fa-edit"></i>
+                <h4 id="edit-section" class="modal-title">Get wiki with it! Feel free to add your own edits.</h4>
+              </div>
+              <div class="modal-body">
+                <form action="" method="post">
+                  <label for="POST-name">What's your header? </label>
+                  <input id="POST-name" type="text" name="name">
+                  <p> We love reading deep space facts! </p>
+                  <textarea id="user-comment" class="form-control form-control-lg" type="text" placeholder="" rows="8"
+                    cols="50"></textarea>
+                  <input type="submit" value="Save">
+                </form>
+                <!-- I need to write a post route in app.js to save the changes
+                    app.post/usercomments/-->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
     </div>
 
     <!-- $.ajax({
