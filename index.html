@@ -21,11 +21,10 @@
   </head>
 
   <body>
-     <div class="container">
-      <div class="jumbotron"><img src="public/images/logo.png" alt="daily nasa picture" width="79%"> Application by Katie Poeltler
-
-</div>
-
+    <div class="container">
+      <div class="jumbotron"><img src="public/images/logo.png" alt="daily nasa picture" width="79%"> Application by
+        Katie Poeltler
+      </div>
 
       <!-- Fade in and out Logo -->
       <!-- <h1 id="logo-fade">
@@ -38,11 +37,27 @@
                 <button class="btns" id="prebtn">
                   < </button> <button class="btns" id="nextbtn">>
                 </button> -->
-          <div class="card">
-            <img id="apod_img_id" width="100%" height="100%" />
-            <!-- <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe> -->
-            <div class="apod-title">
-              <h4 id="apod_title"></h4>
+          <!-- <div class="card"> -->
+          <div class="panel panel-primary">
+
+            <!-- Panel Heading for the retrieved articles box -->
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <strong>
+                  <i class="fa fa-table"></i> NASA's Picture of The Day</strong>
+              </h3>
+            </div>
+
+            <!-- This main panel will hold each of the resulting articles -->
+            <div class="panel-body" id="well-section"> <img id="apod_img_id" width="100%" height="100%" />
+              <!--panel-body is where the panel content will go and the #well-section is trilogy's name -->
+
+
+
+              <!-- <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe> -->
+              <div class="apod-title">
+                <h4 id="apod_title"></h4>
+              </div>
             </div>
           </div>
         </div>
@@ -50,12 +65,23 @@
 
       <div class="row">
         <div class="col-sm-12 col-md-12">
-          <div id="apod_explaination" class="explaination" style="text-align: center ; "></div>
-        </br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+            <h3 class="panel-title">
+              <strong>
+                <i class="fa  fa-list-alt"></i> Image Desription</strong>
+            </h3>
+          </div>
+          <div class="panel-body" id="apod_explaination" style="text-align: center ; color: black ; "></div>
+
+          </div>
+          </div>
+          </div>
+
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
             <i class="fa fa-edit"> Add edits</i> </button>
-        </div>
-      </div>
+
+
       <div class="modal fade" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">

@@ -57,7 +57,7 @@ header > img {
 }
 
 .explaination {
-  background-color: #e5f31d;
+  background-color: #111110;
   /* box-sizing: border-box; */
   width: 580px;
   height:550px;
@@ -67,7 +67,7 @@ header > img {
 
 
  /* RESETS */
- *::before, *::after,
+*::before, *::after,
 *:before, *:after{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
