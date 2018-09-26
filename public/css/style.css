@@ -13,29 +13,7 @@ body {
   background-color: #030508
 }
 
-.jumbotron-billboard .img {
-  margin-bottom: 0px;
 
-  background: #000 url("../images/milkyway.jpg") top center no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  overflow: hidden;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:2;
-}
-.jumbotron h2 {margin-top:0;}
-.jumbotron {
-position:relative;
-padding-top:50px;
-padding-bottom:50px;
-}
-.jumbotron  {
-position:relative;
-z-index:2;
-}
 
 @media screen and (max-width: 768px) {
 .jumbotron {
@@ -85,9 +63,6 @@ header > img {
   height:550px;
   text-align: center;
 }
-
-
-
 
 
 
