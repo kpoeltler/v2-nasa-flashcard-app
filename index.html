@@ -2,11 +2,10 @@
 <html>
 
   <head>
-
     <title>Astronomy Flashcards</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,22 +13,20 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script src="public/javascript/app.js"></script>
-
-
   </head>
 
   <body style=background-color:black;>
-    <div class="container" style="background-color: rgb(22, 21, 21)";>
-      <div class="jumbotron" style="background-color: rgb(19, 16, 16); color: white"><img src="public/images/logo.png" alt="daily nasa picture" width="43%"> Application by
+    <div class="container" style="background-color: rgb(22, 21, 21)" ;>
+      <div class="jumbotron" style="background-color: rgb(19, 16, 16); color: white">
+        <img src="public/images/logo.png" alt="daily nasa picture" width="43%" /> Application by
         Katie Poeltler
       </div>
 
       <!-- Fade in and out Logo -->
       <!-- <h1 id="logo-fade">
-      <img src="images/logo.png" alt="Logo">
-    <!-- </h1> -->
+      <img src="images/logo.png" alt="Logo"></h1> -->
+
       <!-- Row for Image and explaination  -->
       <div class="row">
         <div class="col-sm-12 col-md-12">
@@ -38,27 +35,25 @@
                   < </button> <button class="btns" id="nextbtn">>
                 </button> -->
           <!-- <div class="card"> -->
-              <div id="clockbox" style="text-align:left; margin-left:14px; font:12pt Arial; color:rgb(133, 230, 7);"></div>
+          <div id="clockbox" style="text-align:left; margin-left:14px; font:12pt Arial; color:rgb(133, 230, 7)";></div>
+
           </br>
 
-          <div class="panel" style="background-color:rgb(14, 11, 11)";>
+          <div class="panel" style="background-color:rgb(14, 11, 11)" ;>
 
 
             <!-- Panel Heading for the retrieved articles box -->
             <div class="panel-heading">
 
-              <h3  class="panel-title" style="color:white";>
+              <h3 class="panel-title" style="color:white" ;>
                 <strong>
-                  <i class="fa fa-image" style="color:white";></i> NASA's Image of The Day</strong>
+                  <i class="fa fa-image" style="color:white" ;></i> NASA's Image of The Day</strong>
               </h3>
             </div>
 
             <!-- This main panel will hold each of the resulting articles -->
-            <div class="panel-body" style="color:white";> <img id="apod_img_id" width="100%" height="100%" />
+            <div class="panel-body" style="color:white" ;> <img id="apod_img_id" width="100%" height="100%" />
               <!--panel-body is where the panel content will go and the #well-section is trilogy's name -->
-
-
-
               <!-- <iframe id="apod_vid_id" type="text/html" width="520px" height="349px" frameborder="3"></iframe> -->
               <div class="apod-title">
                 <h3 id="apod_title"></h3>
@@ -72,19 +67,20 @@
         <div class="col-sm-12 col-md-12">
           <div class="panel" style="background-color:rgb(14, 11, 11)">
             <div class="panel-heading">
-            <h3 class="panel-title" style="color:white";>
-              <strong>
-                <i class="fa  fa-list-alt"></i> Image Description</strong>
-            </h3>
-          </div>
-          <div class="panel-body" id="apod_explaination" style="text-align: center ; color: white; "></div>
+              <h3 class="panel-title" style="color:white" ;>
+                <strong>
+                  <i class="fa  fa-list-alt"></i> Image Description</strong>
+              </h3>
+            </div>
+            <div class="panel-body" id="apod_explaination" style="text-align: center ; color: white; "></div>
 
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
 
-          <button type="button" class="btn btn-lg" style="background-color:rgb(116, 201, 5); color: rgb(8, 1, 36);" data-toggle="modal" data-target="#myModal">
-            <i class="fa fa-edit"> Add edits</i> </button>
+      <button type="button" class="btn btn-lg" style="background-color:rgb(116, 201, 5); color: rgb(8, 1, 36);"
+        data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-edit"> Add edits</i> </button>
 
 
       <div class="modal fade" id="myModal">
@@ -96,12 +92,15 @@
             </div>
             <div class="modal-body">
               <form action="" method="post">
-                <label for="POST-name">What's your header? </label>
-                <input id="POST-name" type="text" name="name">
-                <p> We love reading deep space facts! </p>
-                <textarea id="user-comment" class="form-control form-control-lg" type="text" placeholder="" rows="8"
-                  cols="50"></textarea>
-                <input type="submit" value="Save">
+                <fieldset>
+                  <legend>User Edits</legend>
+                  <label for="POST-name">What's your header? </label>
+                  <input id="POST-name" type="text" name="name">
+                  <p> We love reading deep space facts! </p>
+                  <textarea id="user-comment" class="form-control form-control-lg" type="text" placeholder="" rows="8"
+                    cols="50"></textarea>
+                  <input type="submit" value="Save">
+                </fieldset>
               </form>
               <!-- I need to write a post route in app.js to save the changes
                     app.post/usercomments/-->
@@ -115,8 +114,8 @@
     </div>
     </div>
 
-    <!-- $.ajax({
-              url:"https://api.nasa.gov/planetary/apod?api_key=VBmmkpWMV3eWpklLC1tsXUmUiiej1unTpiihHq8n";
+     <!-- $.ajax({
+              url:https://api.nasa.gov/planetary/apod?api_key=Dg5N97Ezv36sjHf30lLwCxZHfu7UHGyfzq65Dm2R;
               success: function(result){
               // if("copyright" in result) {
               //   $("#copyright").text("Image Credits: " + result.copyright);
@@ -139,37 +138,37 @@
               $("#apod_title").text(result.title);
             }
 
-            });    -->
+            });     -->
     <!-- <div>
                 <!-- <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="3"></iframe>
                 <p id="copyright"></p> -->
 
     <!-- <h3 id="apod_title"></h3>
                 </div> -->
-                <script type="text/javascript">
-                  var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-                  var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+    <!-- <script type="text/javascript"> -->
+      <!-- // var tday = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+      // var tmonth = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 
-                  function GetClock(){
-                  var d=new Date();
-                  var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-                  var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+      // function GetClock() {
+      //   var d = new Date();
+      //   var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+      //   var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds(), ap;
 
-                  if(nhour==0){ap=" AM";nhour=12;}
-                  else if(nhour<12){ap=" AM";}
-                  else if(nhour==12){ap=" PM";}
-                  else if(nhour>12){ap=" PM";nhour-=12;}
+      //   if (nhour == 0) { ap = " AM"; nhour = 12; }
+      //   else if (nhour < 12) { ap = " AM"; }
+      //   else if (nhour == 12) { ap = " PM"; }
+      //   else if (nhour > 12) { ap = " PM"; nhour -= 12; }
 
-                  if(nmin<=9) nmin="0"+nmin;
-                  if(nsec<=9) nsec="0"+nsec;
+      //   if (nmin <= 9) nmin = "0" + nmin;
+      //   if (nsec <= 9) nsec = "0" + nsec;
 
-                  var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
-                  document.getElementById('clockbox').innerHTML=clocktext;
-                  }
+      //   var clocktext = "" + tday[ nday ] + ", " + tmonth[ nmonth ] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + ap + "";
+      //   document.getElementById('clockbox').innerHTML = clocktext;
+      // }
 
-                  GetClock();
-                  setInterval(GetClock,1000);
-                  </script>
+      // GetClock();
+      // setInterval(GetClock, 1000); -->
+    <!-- </script> -->
 
   </body>
 

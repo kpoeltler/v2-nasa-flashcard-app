@@ -10,7 +10,7 @@ body {
 	line-height: 1.4em;
 	font-weight: normal;
   text-align: center;
-  background-color: #030508
+  background-color: #4f4f50
 }
 .jumbotron {
     background-color: black;
@@ -52,13 +52,13 @@ header > img {
   margin: 0px -15px 0px 0px;
 } */
 
-.card {
+/* .card {
   background-color: #8dee1e;
   border-radius: 10px;
   box-sizing: border-box;
   width: 580px;
   height:300px;
-}
+} */
 
 .explaination {
   background-color: #111110;

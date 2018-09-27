@@ -16,22 +16,44 @@ $(document).ready(function () {
   });
 
   // START DATE SCRIPT
+  var tday = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+      var tmonth = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 
-var showdate	= "yes"  	// SHOW THE DATE | yes | no |
+      function GetClock() {
+        var d = new Date();
+        var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+        var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds(), ap;
 
-if (showdate == "yes") {
-let date = $("<div>");
-var d=new Date();
-var weekday=new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-var monthname=new Array('January','February','March','April','May','June','July','August','September','October','November','December');
-document.write('<span class="date-font">' + weekday[d.getDay()] + ' ');
-document.write(monthname[d.getMonth()] + ' ');
-document.write(d.getDate() + '. ');
-document.write(d.getFullYear())
-document.write('<br></span>')
-document.write('</div>');
-$("#date-location").html(date);
-};
+        if (nhour == 0) { ap = " AM"; nhour = 12; }
+        else if (nhour < 12) { ap = " AM"; }
+        else if (nhour == 12) { ap = " PM"; }
+        else if (nhour > 12) { ap = " PM"; nhour -= 12; }
+
+        if (nmin <= 9) nmin = "0" + nmin;
+        if (nsec <= 9) nsec = "0" + nsec;
+
+        var clocktext = "" + tday[ nday ] + ", " + tmonth[ nmonth ] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + ap + "";
+        document.getElementById('clockbox').innerHTML = clocktext;
+      }
+
+      GetClock();
+      setInterval(GetClock, 1000);
+
+// var showdate	= "yes"  	// SHOW THE DATE | yes | no |
+
+// if (showdate == "yes") {
+// let date = $("<div>");
+// var d=new Date();
+// var weekday=new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+// var monthname=new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+// document.write('<span class="date-font">' + weekday[d.getDay()] + ' ');
+// document.write(monthname[d.getMonth()] + ' ');
+// document.write(d.getDate() + '. ');
+// document.write(d.getFullYear())
+// document.write('<br></span>')
+// document.write('</div>');
+// $("#date-location").html(date);
+// };
 
 
 //   * When the user clicks on the button,
@@ -67,9 +89,9 @@ window.onclick = function(event) {
   };
 
 
-  $("#card").click(function () {
+  $(".card").click(function () {
     if (
-      $("#card")
+      $(".card")
         .children()
         .is("p")
     ) {
@@ -77,26 +99,53 @@ window.onclick = function(event) {
       apodPicture.attr("src", state.cardArr[ state.current ].hdurl);
       // apodPicture.attr("src", state.cardArr[0][ state.current ].hdurl);
       apodPicture.attr("id", "db-picture");
-      $("#card").html(apodPicture);
+      $(".card").html(apodPicture);
 
     } else {
       let apodExplanation = $("<p>");
-      $("#card").html(
+      $(".card").html(
         apodExplanation.text(state.cardArr[ state.current ].explanation)
         // apodExplanation.text(state.cardArr[ 0 ][ state.current ].explanation)
       )
       let userExplanation = $("<p>");
-      $("#card").append(
+      $(".card").append(
         userExplanation.text(state.cardArr[ state.current ].user_desc)
         // userExplanation.text(state.cardArr[ 0 ][ state.current ].user_desc)
       )
 
-      $("#card").append(
+      $(".card").append(
         "<button id='edit-btn' data-toggle='modal' data-target='#myModal'> <i class='material-icons'>&#xe254;</i> </button>"
       );
     }
   });
 
+  var url = "https://api.nasa.gov/planetary/apod?api_key=Dg5N97Ezv36sjHf30lLwCxZHfu7UHGyfzq65Dm2R";
+
+
+  $.ajax({
+    url: url,
+    success: function(result){
+    if("copyright" in result) {
+      $("#copyright").text("Image Credits: " + result.copyright);
+    }
+    else {
+      $("#copyright").text("Image Credits: " + "Public Domain");
+    }
+
+    if(result.media_type == "video") {
+      $("#apod_img_id").css("display", "none");
+      $("#apod_vid_id").attr("src", result.url);
+    }
+    else {
+      $("#apod_vid_id").css("display", "none");
+      $("#apod_img_id").attr("src", result.url);
+    }
+    $("#reqObject").text(url);
+    $("#returnObject").text(JSON.stringify(result, null, 4));
+    $("#apod_explaination").text(result.explanation);
+    $("#apod_title").text(result.title);
+  }
+  });
 
 
 
@@ -385,7 +434,7 @@ $.ajax({
   }
 });
 
-let apod = "https://api.nasa.gov/planetary/apod?api_key=VBmmkpWMV3eWpklLC1tsXUmUiiej1unTpiihHq8n";
+let apod = "https://api.nasa.gov/planetary/apod?api_key=Dg5N97Ezv36sjHf30lLwCxZHfu7UHGyfzq65Dm2R";
 
 let success = $.ajax({
   url: apod,
@@ -398,6 +447,4 @@ let success = $.ajax({
       $("#copyright").text("Image Credits: " + "Public Domain");
     }
   }
-})
-}
-)
+});
